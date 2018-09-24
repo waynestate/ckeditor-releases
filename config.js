@@ -8,7 +8,7 @@ CKEDITOR.editorConfig = function( config ) {
     // config.language = 'fr';
     // config.uiColor = '#AADC6E';
 
-    config.extraPlugins = 'buttonwayne,image2,youtube,youtubethumb'
+    config.extraPlugins = 'buttonwayne,image2,youtube,youtubethumb';
 
     config.skin = 'moono';
     config.image2_altRequired = true;
@@ -19,7 +19,8 @@ CKEDITOR.editorConfig = function( config ) {
         'iframe{*}[width,height,src,frameborder,allowfullscreen,title];' + // Don't require the attributes that the YouTube Plugin required
         'img{margin*,padding*};' + // Allow margins and padding on <img> to be modifiable
         'blockquote cite;' + // Allow <cite> to be within the <blockquote>
-        'dl dd dt;' // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
+        'dl dd dt;' + // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
+        'script(*)[*];' // Allow script tags to be inserted
     ;
 
     // Remove allowed margins when pasting from Word
