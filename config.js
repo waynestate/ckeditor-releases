@@ -62,6 +62,15 @@ CKEDITOR.editorConfig = function( config ) {
                     right: function(el){
                         el.styles['padding'] = '10px';
                     }
+                },
+                {
+                    element: 'img',
+                    left: function(el) {
+                        return el.parent.attributes.hasOwnProperty('data-flickr-embed') && el.parent.attributes['data-flickr-embed'];
+                    },
+                    right: function(el) {
+                        el.styles['padding'] = 0;
+                    }
                 }
             ],
             [
