@@ -66,7 +66,7 @@ CKEDITOR.editorConfig = function( config ) {
                 {
                     element: 'img',
                     left: function(el) {
-                        return el.parent.attributes.hasOwnProperty('data-flickr-embed') && el.parent.attributes['data-flickr-embed'];
+                        return el.parent && el.parent.attributes && el.parent.attributes.hasOwnProperty('data-flickr-embed') && el.parent.attributes['data-flickr-embed'];
                     },
                     right: function(el) {
                         el.styles['padding'] = 0;
