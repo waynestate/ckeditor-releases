@@ -12,6 +12,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.skin = 'moono';
     config.image2_altRequired = false;
+    config.image2_captionedClass = 'figure';
     config.pasteFromWordRemoveFontStyles = true;
 
     // ACF rules not allowed by any plugins
@@ -81,6 +82,15 @@ CKEDITOR.editorConfig = function( config ) {
                     },
                     right: function(el){
                         el.styles['padding-bottom'] = '10px';
+                    }
+                },
+                {
+                    element: 'figure',
+                    left: function(el) {
+                        return el.classes.indexOf('figure') === -1
+                    },
+                    right: function(el){
+                        el.classes.push('figure');
                     }
                 }
             ]
