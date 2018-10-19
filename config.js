@@ -11,7 +11,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.extraPlugins = 'buttonwayne,image2,youtube,youtubethumb';
 
     config.skin = 'moono';
-    config.image2_altRequired = true;
+    config.image2_altRequired = false;
     config.pasteFromWordRemoveFontStyles = true;
 
     // ACF rules not allowed by any plugins
