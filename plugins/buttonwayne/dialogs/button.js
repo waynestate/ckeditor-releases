@@ -36,21 +36,60 @@
             var html = '';
 
             if(center == false){
-                html = '<table cellpadding="0" cellspacing="0"><tbody><tr>' +
-                    '<td align="center" bgcolor="#ffda8a" height="40" style="border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border: 1px solid rgb(255, 223, 152); background-image: linear-gradient(rgb(253, 225, 163) 5%, rgb(245, 198, 80) 100%); text-align: center; background-position: initial initial; background-repeat: initial initial;padding: 0px 15px;" width="200">' +
-                    '<a class="buttonwayne" href="' + url + '" style="color: #0a4b41; font-size: 16px; text-shadow:0px 1px 0px #ffee66; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-decoration: none; line-height: 40px; width: 100%; display: inline-block;">' +
-                    label +
-                    '</a></td></tr></tbody></table>';
+                html = `<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+                <tbody>
+                  <tr>
+                    <td>
+                      <table border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td bgcolor="#fdd891" style="border-radius:5px;">
+                              <a
+                                href="${url}"
+                                style="border-radius:5px; border:1px solid #fdd891; color:#0c5449; display:inline-block; font-family:Helvetica,Arial,sans-serif; font-size:16px; font-weight:bold; padding:12px 18px; text-decoration:none"
+                                target="_blank"
+                                rel="noopener"
+                                class="buttonwayne"
+                                >${label}</a
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>`;
+
                 editor.insertHtml(html);
             }
             else {
-                html = '<div style="text-align: center"><table style="margin:0; padding:0; display:inline-block;" cellpadding="0" cellspacing="0"><tbody><tr>' +
-                    '<td bgcolor="#ffda8a" height="40" style="border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border: 1px solid rgb(255, 223, 152); background-image: linear-gradient(rgb(253, 225, 163) 5%, rgb(245, 198, 80) 100%); text-align: center; background-position: initial initial; background-repeat: initial initial;padding: 0px 15px;" width="200">' +
-                    '<a class="buttonwayne" href="' + url + '" style="color: #0a4b41; font-size: 16px; text-shadow:0px 1px 0px #ffee66; font-weight: bold; font-family: Arial, Helvetica, sans-serif; text-decoration: none; line-height: 26px; display: inline-block;">' +
-                    label +
-                    '</a></td></tr></tbody></table></div>';
+                html = `<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+                <tbody>
+                  <tr>
+                    <td>
+                      <table align="center" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td bgcolor="#fdd891" style="border-radius:5px">
+                              <a
+                                href="${url}"
+                                style="border-radius:5px; border:1px solid #fdd891; color:#0c5449; display:inline-block; font-family:Helvetica,Arial,sans-serif; font-size:16px; padding:12px 18px; font-weight:bold; text-decoration:none"
+                                target="_blank"
+                                rel="noopener"
+                                class="buttonwayne"
+                                >${label}
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>`;
 
-	            editor.insertHtml(html);
+                editor.insertHtml(html);
             }
         }
     };
