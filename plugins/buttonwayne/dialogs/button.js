@@ -43,7 +43,7 @@
                       <table border="0" cellpadding="0" cellspacing="0">
                         <tbody>
                           <tr>
-                            <td bgcolor="#fdd891" style="border-radius:5px;">
+                            <td bgcolor="#fdd891" style="border-radius:5px;background-color:#fdd891">
                               <a
                                 href="${url}"
                                 style="border-radius:5px; border:1px solid #fdd891; color:#0c5449; display:inline-block; font-family:Helvetica,Arial,sans-serif; font-size:16px; font-weight:bold; padding:12px 18px; text-decoration:none"
@@ -71,7 +71,7 @@
                       <table align="center" border="0" cellpadding="0" cellspacing="0">
                         <tbody>
                           <tr>
-                            <td bgcolor="#fdd891" style="border-radius:5px">
+                            <td bgcolor="#fdd891" style="border-radius:5px;background-color:#fdd891">
                               <a
                                 href="${url}"
                                 style="border-radius:5px; border:1px solid #fdd891; color:#0c5449; display:inline-block; font-family:Helvetica,Arial,sans-serif; font-size:16px; padding:12px 18px; font-weight:bold; text-decoration:none"
