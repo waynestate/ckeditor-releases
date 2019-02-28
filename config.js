@@ -72,7 +72,17 @@ CKEDITOR.editorConfig = function( config ) {
                     right: function(el) {
                         el.styles['padding'] = 0;
                     }
-                }
+                },
+                {
+                    element: 'img',
+                    left: function(el) {
+                        return el.parent && el.parent.classes.indexOf('figure');
+                    },
+                    right: function(el) {
+                        delete (el.styles['padding']);
+                        el.styles['padding-bottom'] = '10px';
+                    }
+                },
             ],
             [
                 {
@@ -81,7 +91,7 @@ CKEDITOR.editorConfig = function( config ) {
                         return Object.keys(el.styles).length === 0;
                     },
                     right: function(el){
-                        el.styles['padding-bottom'] = '10px';
+                        el.styles['padding'] = '10px';
                     }
                 },
                 {
