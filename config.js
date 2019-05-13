@@ -117,7 +117,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['JustifyLeft','JustifyCenter','JustifyRight'],
         ['Link','Unlink','Anchor','Youtube'],
         '/',
-        ['Format','FontSize'],
+        ['Format'],
         ['Maximize', 'ShowBlocks','-','About']
     ];
     config.toolbar_newsletter = [
