@@ -15,6 +15,9 @@ CKEDITOR.editorConfig = function( config ) {
     config.image2_captionedClass = 'figure';
     config.pasteFromWordRemoveFontStyles = true;
 
+    // Allow `lang` attribute to be applied
+    config.language_list = [ 'ar:Arabic:rtl', 'de:German', 'fr:French', 'la:Latin', 'es:Spanish'];
+
     // ACF rules not allowed by any plugins
     config.extraAllowedContent = '*(*)[data-*];' + // allow all classes and any data attribute on all elements
         'iframe{*}[width,height,src,allowfullscreen,title];' + // Don't require the attributes that the YouTube Plugin required
@@ -127,7 +130,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Bold','Italic','Strike','-','Subscript','Superscript'],
         ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
         ['JustifyLeft','JustifyCenter','JustifyRight'],
-        ['Link','Unlink','Anchor','Youtube'],
+        ['Language','Link','Unlink','Anchor','Youtube'],
         '/',
         ['Format'],
         ['Maximize', 'ShowBlocks','-','About']
@@ -140,7 +143,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Bold','Italic','Strike','-','Subscript','Superscript'],
         ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
         ['JustifyLeft','JustifyCenter','JustifyRight'],
-        ['Link','Unlink','Anchor','Youtube'],
+        ['Language','Link','Unlink','Anchor','Youtube'],
         '/',
         ['Format','FontSize','TextColor'],
         ['Maximize', 'ShowBlocks','-','About']
@@ -153,7 +156,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Bold','Italic','Strike','-','Subscript','Superscript'],
         ['NumberedList','BulletedList','-'],
         ['JustifyLeft','JustifyCenter','JustifyRight'],
-        ['Link','Unlink','Anchor','ButtonWayne','YoutubeThumb'],
+        ['Language','Link','Unlink','Anchor','ButtonWayne','YoutubeThumb'],
         '/',
         ['Format','FontSize','TextColor'],
         ['Maximize', 'ShowBlocks','-','About']
@@ -161,7 +164,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.toolbar_newsroom = [
         ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo'],
         ['Scayt'],
-        ['Link','Unlink','Anchor'],
+        ['Language','Link','Unlink','Anchor'],
         ['Image','Table','HorizontalRule','SpecialChar'],
         ['Maximize'],
         ['Source'],
