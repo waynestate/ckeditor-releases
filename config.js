@@ -16,7 +16,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.pasteFromWordRemoveFontStyles = true;
 
     // Allow `lang` attribute to be applied
-    config.language_list = [ 'ar:Arabic:rtl', 'de:German', 'fr:French', 'la:Latin', 'es:Spanish'];
+    config.language_list = [ 'ar:Arabic:rtl', 'zh:Chinese', 'fr:French', 'de:German', 'id:Indonesian', 'it:Italian', 'ja:Japanese', 'ko:Korean', 'la:Latin', 'pt:Portuguese', 'es:Spanish', 'th:Thai', 'tr:Turkish', 'vi:Vietnamese'];
 
     // ACF rules not allowed by any plugins
     config.extraAllowedContent = '*(*)[data-*];' + // allow all classes and any data attribute on all elements
