@@ -30,12 +30,26 @@ CKEDITOR.editorConfig = function( config ) {
     // Only allow specific link targets
     CKEDITOR.on('dialogDefinition', function(evt) {
         var dialogName = evt.data.name;
+        var dialogDefinition = evt.data.definition;
+
+        // Set only specific targets when viewing the Link dialog box
         if (dialogName == 'link') {
-            var dialogDefinition = evt.data.definition;
             var informationTab = dialogDefinition.getContents('target');
             var targetField = informationTab.get('linkTargetType');
 
             targetField.items = targetField.items.filter(target => ['_blank', '_self', '_top', '_parent', 'notSet'].includes(target[1]));
+        }
+
+        // Table Dialog default settings Cell Padding is null, Border is null and width is 100%
+        if(dialogName === 'table') {
+            var infoTab = dialogDefinition.getContents('info');
+
+            var cellPadding = infoTab.get('txtCellPad');
+            cellPadding['default'] = "";
+            var border = infoTab.get('txtBorder');
+            border['default'] = "";
+            var width = infoTab.get('txtWidth');
+            width['default'] = "100%";
         }
     });
 
