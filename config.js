@@ -46,6 +46,8 @@ CKEDITOR.editorConfig = function( config ) {
 
             var cellPadding = infoTab.get('txtCellPad');
             cellPadding['default'] = "";
+            var cellSpacing = infoTab.get('txtCellSpace');
+            cellSpacing['default'] = "";
             var border = infoTab.get('txtBorder');
             border['default'] = "";
             var width = infoTab.get('txtWidth');
