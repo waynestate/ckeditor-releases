@@ -38,34 +38,6 @@
 							expand : true,
 							elements :
 								[{
-									id : 'txtEmbed',
-									type : 'textarea',
-									label : editor.lang.youtube.txtEmbed,
-									onChange : function (api) {
-										handleEmbedChange(this, api);
-									},
-									onKeyUp : function (api) {
-										handleEmbedChange(this, api);
-									},
-									validate : function () {
-										if (this.isEnabled()) {
-											if (!this.getValue()) {
-												alert(editor.lang.youtube.noCode);
-												return false;
-											}
-											else
-											if (this.getValue().length === 0 || this.getValue().indexOf('//') === -1) {
-												alert(editor.lang.youtube.invalidEmbed);
-												return false;
-											}
-										}
-									}
-								},
-								{
-									type : 'html',
-									html : editor.lang.youtube.or + '<hr>'
-								},
-								{
 									type : 'hbox',
 									widths : [ '70%', '15%', '15%' ],
 									children :
@@ -234,88 +206,82 @@
 					{
 						var content = '';
 						var responsiveStyle = '';
+						var url = 'https://', params = [], startSecs, paramAutoplay='';
+						var width = this.getValueOf('youtubePlugin', 'txtWidth');
+						var height = this.getValueOf('youtubePlugin', 'txtHeight');
 
-						if (this.getContentElement('youtubePlugin', 'txtEmbed').isEnabled()) {
-							content = this.getValueOf('youtubePlugin', 'txtEmbed');
+						if (this.getContentElement('youtubePlugin', 'chkPrivacy').getValue() === true) {
+							url += 'www.youtube-nocookie.com/';
 						}
 						else {
-							var url = 'https://', params = [], startSecs, paramAutoplay='';
-							var width = this.getValueOf('youtubePlugin', 'txtWidth');
-							var height = this.getValueOf('youtubePlugin', 'txtHeight');
+							url += 'www.youtube.com/';
+						}
 
-							if (this.getContentElement('youtubePlugin', 'chkPrivacy').getValue() === true) {
-								url += 'www.youtube-nocookie.com/';
+						url += 'embed/' + video;
+
+						if (this.getContentElement('youtubePlugin', 'chkRelated').getValue() === false) {
+							params.push('rel=0');
+						}
+
+						if (this.getContentElement('youtubePlugin', 'chkAutoplay').getValue() === true) {
+							params.push('autoplay=1');
+							paramAutoplay='autoplay';
+						}
+
+						if (this.getContentElement('youtubePlugin', 'chkControls').getValue() === false) {
+							params.push('controls=0');
+						}
+
+						startSecs = this.getValueOf('youtubePlugin', 'txtStartAt');
+
+						if (startSecs) {
+							var seconds = hmsToSeconds(startSecs);
+
+							params.push('start=' + seconds);
+						}
+
+						if (params.length > 0) {
+							url = url + '?' + params.join('&');
+						}
+
+						if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
+							content += '<div class="youtube-embed-wrapper" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden">';
+							responsiveStyle = 'style="position:absolute;top:0;left:0;width:100%;height:100%"';
+						}
+
+						if (this.getContentElement('youtubePlugin', 'chkOlderCode').getValue() === true) {
+							url = url.replace('embed/', 'v/');
+							url = url.replace(/&/g, '&amp;');
+
+							if (url.indexOf('?') === -1) {
+								url += '?';
 							}
 							else {
-								url += 'www.youtube.com/';
+								url += '&amp;';
 							}
+							url += 'hl=' + (this.getParentEditor().config.language ? this.getParentEditor().config.language : 'en') + '&amp;version=3';
 
-							url += 'embed/' + video;
+							content += '<object width="' + width + '" height="' + height + '" ' + responsiveStyle + '>';
+							content += '<param name="movie" value="' + url + '"></param>';
+							content += '<param name="allowFullScreen" value="true"></param>';
+							content += '<param name="allowscriptaccess" value="always"></param>';
+							content += '<embed src="' + url + '" type="application/x-shockwave-flash" ';
+							content += 'width="' + width + '" height="' + height + '" '+ responsiveStyle + ' allowscriptaccess="always" ';
+							content += 'allowfullscreen="true"></embed>';
+							content += '</object>';
+						}
+						else
+						if (this.getContentElement('youtubePlugin', 'chkNoEmbed').getValue() === true) {
+							var imgSrc = 'https://img.youtube.com/vi/' + video + '/sddefault.jpg';
+							content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
+						}
+						else {
+							content += '<iframe ' + (paramAutoplay ? 'allow="' + paramAutoplay + ';" ' : '') + 'width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
+							content += 'frameborder="0" allowfullscreen></iframe>';
+						}
 
-							if (this.getContentElement('youtubePlugin', 'chkRelated').getValue() === false) {
-								params.push('rel=0');
-							}
-
-							if (this.getContentElement('youtubePlugin', 'chkAutoplay').getValue() === true) {
-								params.push('autoplay=1');
-								paramAutoplay='autoplay';
-							}
-
-							if (this.getContentElement('youtubePlugin', 'chkControls').getValue() === false) {
-								params.push('controls=0');
-							}
-
-							startSecs = this.getValueOf('youtubePlugin', 'txtStartAt');
-
-							if (startSecs) {
-								var seconds = hmsToSeconds(startSecs);
-
-								params.push('start=' + seconds);
-							}
-
-							if (params.length > 0) {
-								url = url + '?' + params.join('&');
-							}
-
-							if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
-								content += '<div class="youtube-embed-wrapper" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden">';
-								responsiveStyle = 'style="position:absolute;top:0;left:0;width:100%;height:100%"';
-							}
-
-							if (this.getContentElement('youtubePlugin', 'chkOlderCode').getValue() === true) {
-								url = url.replace('embed/', 'v/');
-								url = url.replace(/&/g, '&amp;');
-
-								if (url.indexOf('?') === -1) {
-									url += '?';
-								}
-								else {
-									url += '&amp;';
-								}
-								url += 'hl=' + (this.getParentEditor().config.language ? this.getParentEditor().config.language : 'en') + '&amp;version=3';
-
-								content += '<object width="' + width + '" height="' + height + '" ' + responsiveStyle + '>';
-								content += '<param name="movie" value="' + url + '"></param>';
-								content += '<param name="allowFullScreen" value="true"></param>';
-								content += '<param name="allowscriptaccess" value="always"></param>';
-								content += '<embed src="' + url + '" type="application/x-shockwave-flash" ';
-								content += 'width="' + width + '" height="' + height + '" '+ responsiveStyle + ' allowscriptaccess="always" ';
-								content += 'allowfullscreen="true"></embed>';
-								content += '</object>';
-							}
-							else
-							if (this.getContentElement('youtubePlugin', 'chkNoEmbed').getValue() === true) {
-								var imgSrc = 'https://img.youtube.com/vi/' + video + '/sddefault.jpg';
-								content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
-							}
-							else {
-								content += '<iframe ' + (paramAutoplay ? 'allow="' + paramAutoplay + ';" ' : '') + 'width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
-								content += 'frameborder="0" allowfullscreen></iframe>';
-							}
-
-							if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
-								content += '</div>';
-							}
+						if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
+							content += '</div>';
 						}
 
 						var element = CKEDITOR.dom.element.createFromHtml(content);
