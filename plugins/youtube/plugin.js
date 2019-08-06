@@ -114,6 +114,25 @@
 										}
 									]
 								},
+                                {
+                                    type : 'hbox',
+                                    widths : [ '55%', '45%' ],
+                                    children :
+                                        [
+                                            {
+                                                id : 'txtTitle',
+                                                type : 'text',
+                                                label : editor.lang.youtube.txtTitle,
+                                                validate : function () {
+                                                    if (!this.getValue()) {
+                                                        alert(editor.lang.youtube.txtNoTitle);
+                                                        return false;
+                                                    }
+                                                }
+                                            },
+
+                                        ]
+                                },
 								{
 									type : 'hbox',
 									widths : [ '55%', '45%' ],
@@ -209,6 +228,7 @@
 						var url = 'https://', params = [], startSecs, paramAutoplay='';
 						var width = this.getValueOf('youtubePlugin', 'txtWidth');
 						var height = this.getValueOf('youtubePlugin', 'txtHeight');
+						var title = this.getValueOf('youtubePlugin', 'txtTitle');
 
 						if (this.getContentElement('youtubePlugin', 'chkPrivacy').getValue() === true) {
 							url += 'www.youtube-nocookie.com/';
@@ -266,7 +286,7 @@
 							content += '<param name="allowFullScreen" value="true"></param>';
 							content += '<param name="allowscriptaccess" value="always"></param>';
 							content += '<embed src="' + url + '" type="application/x-shockwave-flash" ';
-							content += 'width="' + width + '" height="' + height + '" '+ responsiveStyle + ' allowscriptaccess="always" ';
+							content += 'title="' + title + '" width="' + width + '" height="' + height + '" '+ responsiveStyle + ' allowscriptaccess="always" ';
 							content += 'allowfullscreen="true"></embed>';
 							content += '</object>';
 						}
@@ -276,7 +296,7 @@
 							content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
 						}
 						else {
-							content += '<iframe ' + (paramAutoplay ? 'allow="' + paramAutoplay + ';" ' : '') + 'width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
+							content += '<iframe ' + (paramAutoplay ? 'allow="' + paramAutoplay + ';" ' : '') + 'title="' + title + '" width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
 							content += 'frameborder="0" allowfullscreen></iframe>';
 						}
 
