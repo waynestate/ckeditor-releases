@@ -107,7 +107,7 @@ CKEDITOR.editorConfig = function( config ) {
                 {
                     element: 'img',
                     left: function(el) {
-                        return el.parent && el.parent.classes.indexOf('figure');
+                        return el.parent && el.parent.classes.indexOf('figure') !== -1;
                     },
                     right: function(el) {
                         delete (el.styles['padding']);
