@@ -265,7 +265,7 @@
 						}
 
 						if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
-							content += '<div class="youtube-embed-wrapper" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden">';
+							content += '<div class="responsive-embed" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden">';
 							responsiveStyle = 'style="position:absolute;top:0;left:0;width:100%;height:100%"';
 						}
 
