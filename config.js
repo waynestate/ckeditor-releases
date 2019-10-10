@@ -20,7 +20,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     // ACF rules not allowed by any plugins
     config.extraAllowedContent = '*(*)[data-*];' + // allow all classes and any data attribute on all elements
-        'iframe{*}[width,height,src,allowfullscreen,title];' + // Don't require the attributes that the YouTube Plugin required
+        'iframe{*}[width,height,src,allowfullscreen,title,allow,frameborder];' + // Don't require the attributes that the YouTube Plugin required
         'img{margin*,padding*};' + // Allow margins and padding on <img> to be modifiable
         'blockquote cite;' + // Allow <cite> to be within the <blockquote>
         'dl dd dt;' + // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
