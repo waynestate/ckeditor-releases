@@ -89,6 +89,15 @@ CKEDITOR.editorConfig = function( config ) {
                 {
                     element: 'img',
                     left: function(el) {
+                        return el.attributes.alt && el.attributes.alt.length !== 0 && el.attributes.alt.indexOf('"') !== -1;
+                    },
+                    right: function(el){
+                        el.attributes.alt = el.attributes.alt.replace(/"/ig, '');
+                    }
+                },
+                {
+                    element: 'img',
+                    left: function(el) {
                         return Object.keys(el.styles).length === 0;
                     },
                     right: function(el){
