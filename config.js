@@ -181,7 +181,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo'],
         ['Scayt'],
         ['Language','Link','Unlink','Anchor'],
-        ['Image','Table','HorizontalRule','SpecialChar'],
+        ['Image','Table','HorizontalRule','SpecialChar', 'Youtube'],
         ['Maximize'],
         ['Source'],
         '/',
