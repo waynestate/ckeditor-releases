@@ -142,6 +142,23 @@ CKEDITOR.editorConfig = function( config ) {
                     right: function(el){
                         el.classes.push('figure');
                     }
+                },
+                {
+                    element: 'figure',
+                    left: function(el) {
+                        return el.find('img');
+                    },
+                    right: function(el) {
+                        var imgs = el.find('img');
+
+                        if (imgs.length > 0) {
+                            imgs.forEach(function (img) {
+                                if (img.attributes.align) {
+                                    delete (img.attributes.align);
+                                }
+                            });
+                        }
+                    }
                 }
             ]
         ]);
