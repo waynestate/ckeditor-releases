@@ -24,7 +24,9 @@ CKEDITOR.editorConfig = function( config ) {
         'img{margin*,padding*};' + // Allow margins and padding on <img> to be modifiable
         'blockquote cite;' + // Allow <cite> to be within the <blockquote>
         'dl dd dt;' + // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
-        'script(*)[*];' // Allow script tags to be inserted
+        'script(*)[*];' + // Allow script tags to be inserted
+        'th[id,headers];' + // Allow ID and headers on <th> for accessibility https://www.w3.org/WAI/tutorials/tables/multi-level/
+        'td[id,headers];' // Allow ID and headers on <td> for accessibility https://www.w3.org/WAI/tutorials/tables/multi-level/
     ;
 
     // Only allow specific link targets
