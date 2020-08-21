@@ -25,8 +25,7 @@ CKEDITOR.editorConfig = function( config ) {
         'blockquote cite;' + // Allow <cite> to be within the <blockquote>
         'dl dd dt;' + // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
         'script(*)[*];' + // Allow script tags to be inserted
-        'th[id,headers];' + // Allow ID and headers on <th> for accessibility https://www.w3.org/WAI/tutorials/tables/multi-level/
-        'td[id,headers];' // Allow ID and headers on <td> for accessibility https://www.w3.org/WAI/tutorials/tables/multi-level/
+        'h1{line-height};h2{line-height};h3{line-height};h4{line-height}' // Allow headers in the HTML editor to have line-heights
     ;
 
     // Only allow specific link targets
