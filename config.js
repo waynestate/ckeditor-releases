@@ -24,7 +24,8 @@ CKEDITOR.editorConfig = function( config ) {
         'img{margin*,padding*};' + // Allow margins and padding on <img> to be modifiable
         'blockquote cite;' + // Allow <cite> to be within the <blockquote>
         'dl dd dt;' + // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
-        'script(*)[*];' // Allow script tags to be inserted
+        'script(*)[*];' + // Allow script tags to be inserted
+        'h1{line-height};h2{line-height};h3{line-height};h4{line-height}' // Allow headers in the HTML editor to have line-heights
     ;
 
     // Only allow specific link targets
