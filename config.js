@@ -166,7 +166,7 @@ CKEDITOR.editorConfig = function( config ) {
     });
 
     config.toolbar_page = [
-        ['Source','-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+        ['Source','-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Print'],
         ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
         ['Image','Table','HorizontalRule','SpecialChar','PageBreak'],
         '/',
@@ -179,7 +179,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Maximize', 'ShowBlocks','-','About']
     ];
     config.toolbar_newsletter = [
-        ['Source','-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+        ['Source','-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Print'],
         ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
         ['Image','Table','HorizontalRule','SpecialChar','PageBreak'],
         '/',
@@ -192,7 +192,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Maximize', 'ShowBlocks','-','About']
     ];
     config.toolbar_email = [
-        ['Source','-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
+        ['Source','-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Print'],
         ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
         ['Image','Table','HorizontalRule','SpecialChar','PageBreak'],
         '/',
@@ -206,7 +206,6 @@ CKEDITOR.editorConfig = function( config ) {
     ];
     config.toolbar_newsroom = [
         ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo'],
-        ['Scayt'],
         ['Language','Link','Unlink','Anchor'],
         ['Image','Table','HorizontalRule','SpecialChar', 'Youtube'],
         ['Maximize'],
