@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @license Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
@@ -939,12 +939,16 @@
 				data.align = 'center';
 
 				// Image can be wrapped in link <a><img/></a>.
-				image = el.getFirst( 'img' ) || el.getFirst( 'a' ).getFirst( 'img' );
+				if(el.find('img', true).length > 0) {
+					image = el.getFirst('img') || el.getFirst('a').getFirst('img');
+				}
 			}
 
 			// No center wrapper has been found.
 			else if ( name == 'figure' && el.hasClass( captionedClass ) ) {
-				image = el.getFirst( 'img' ) || el.getFirst( 'a' ).getFirst( 'img' );
+				if(el.find('img', true).length > 0) {
+					image = el.getFirst('img') || el.getFirst('a').getFirst('img');
+				}
 
 				// Upcast linked image like <a><img/></a>.
 			} else if ( isLinkedOrStandaloneImage( el ) ) {
