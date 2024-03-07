@@ -28,6 +28,7 @@ CKEDITOR.editorConfig = function( config ) {
         'dl dd dt;' + // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
         'script(*)[*];' + // Allow script tags to be inserted
         'h1{line-height};h2{line-height};h3{line-height};h4{line-height}' // Allow headers in the HTML editor to have line-heights
+        'a[aria-label]' // Allow aria-label on anchors
     ;
 
     // Only allow specific link targets
