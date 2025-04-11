@@ -10,7 +10,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.versionCheck = false;
 
-    config.extraPlugins = 'buttonwayne,image2,youtube,youtubethumb';
+    config.extraPlugins = 'buttonwayne,image2,youtube,youtubethumb,abbr';
 
     config.skin = 'moono';
     config.image2_altRequired = false;
@@ -171,7 +171,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.toolbar_page = [
         ['Source','-','Cut','Copy','Paste','PasteText','PasteFromWord','-','Print'],
         ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-        ['Image','Table','HorizontalRule','SpecialChar','PageBreak'],
+        ['Image','Table','HorizontalRule','SpecialChar','Abbr','PageBreak'],
         '/',
         ['Bold','Italic','Strike','-','Subscript','Superscript'],
         ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote','CreateDiv'],
