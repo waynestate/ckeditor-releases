@@ -219,4 +219,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['Format'],
         ['About']
     ];
+    config.toolbar_forms = [
+        ['Bold','Italic','Underline','-','Strike','-','JustifyLeft','JustifyCenter','JustifyRight','BulletdList','NumberedList', 'Undo', 'Redo', 'Link', 'Unlink', 'Image', 'PasteText', 'RemoveFormat', 'Source'],
+    ];
 };
