@@ -36,11 +36,16 @@ CKEDITOR.editorConfig = function( config ) {
         var dialogName = evt.data.name;
         var dialogDefinition = evt.data.definition;
 
-        // Set only specific targets when viewing the Link dialog box
+        // When viewing the Link dialog box
         if (dialogName == 'link') {
-            var informationTab = dialogDefinition.getContents('target');
-            var targetField = informationTab.get('linkTargetType');
+            // Set the https protocol as the default
+            var infoTab = dialogDefinition.getContents('info');
+            var protocolField = infoTab.get('protocol');
+            protocolField.default = 'https://';
 
+            // Set only specific targets when viewing the Link dialog box
+            var targetTab = dialogDefinition.getContents('target');
+            var targetField = targetTab.get('linkTargetType');
             targetField.items = targetField.items.filter(target => ['_blank', '_self', '_top', '_parent', 'notSet'].includes(target[1]));
         }
 
