@@ -225,6 +225,9 @@ CKEDITOR.editorConfig = function( config ) {
         ['About']
     ];
     config.toolbar_forms = [
-        ['Bold','Italic','Underline','-','Strike','-','JustifyLeft','JustifyCenter','JustifyRight','BulletedList','NumberedList', 'Undo', 'Redo', 'Link', 'Unlink', 'Image', 'PasteText', 'RemoveFormat', 'Source'],
+        ['Bold','Italic','Underline', 'Strike','-','JustifyLeft','JustifyCenter','JustifyRight','BulletedList','NumberedList', 'Undo', 'Redo', 'Link', 'Unlink', 'Image', '-', 'PasteText', 'RemoveFormat', 'Source'],
+    ];
+    config.toolbar_events = [
+        ['Bold','Italic','Underline', 'Strike','-','JustifyLeft','JustifyCenter','JustifyRight','BulletedList','NumberedList', 'Undo', 'Redo', 'Link', 'Unlink', 'Image', '-', 'PasteText', 'RemoveFormat', 'Source'],
     ];
 };
