@@ -3,7 +3,7 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-CKEDITOR.plugins.add( 'format', {
+CKEDITOR.plugins.add( 'wsuformat', {
 	requires: 'richcombo',
 	// jscs:disable maximumLineLength
 	lang: 'af,ar,az,bg,bn,bs,ca,cs,cy,da,de,de-ch,el,en,en-au,en-ca,en-gb,eo,es,es-mx,et,eu,fa,fi,fo,fr,fr-ca,gl,gu,he,hi,hr,hu,id,is,it,ja,ka,km,ko,ku,lt,lv,mk,mn,ms,nb,nl,no,oc,pl,pt,pt-br,ro,ru,si,sk,sl,sq,sr,sr-latn,sv,th,tr,tt,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
@@ -37,7 +37,7 @@ CKEDITOR.plugins.add( 'format', {
 		if ( stylesCount === 0 )
 			return;
 
-		editor.ui.addRichCombo( 'Format', {
+		editor.ui.addRichCombo( 'WSUFormat', {
 			label: lang.label,
 			title: lang.panelTitle,
 			toolbar: 'styles,20',
@@ -108,7 +108,7 @@ CKEDITOR.plugins.add( 'format', {
 					var style = styles[ name ];
 
 					// Check if that style is enabled in activeFilter.
-					if ( !editor.activeFilter.check( style ) )
+					if ( !editor.activeFilter.check( style ) && name != 'p')
 						this.hideItem( name );
 
 				}
