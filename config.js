@@ -10,7 +10,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.versionCheck = false;
 
-    config.extraPlugins = 'buttonwayne,image2,youtube,youtubethumb,abbr';
+    config.extraPlugins = 'buttonwayne,image2,youtube,youtubethumb,abbr,wsuformat';
 
     config.skin = 'moono';
     config.image2_altRequired = false;
@@ -209,7 +209,7 @@ CKEDITOR.editorConfig = function( config ) {
         ['JustifyLeft','JustifyCenter','JustifyRight'],
         ['Language','Link','Unlink','Anchor','ButtonWayne','YoutubeThumb'],
         '/',
-        ['Format','FontSize','TextColor'],
+        ['WSUFormat','FontSize','TextColor'],
         ['Maximize', 'ShowBlocks','-','About']
     ];
     config.toolbar_newsroom = [
