@@ -23,12 +23,13 @@ CKEDITOR.editorConfig = function( config ) {
     // ACF rules not allowed by any plugins
     config.extraAllowedContent = '*(*)[data-*];' + // allow all classes and any data attribute on all elements
         'iframe{*}[width,height,src,allowfullscreen,title,allow,frameborder];' + // Don't require the attributes that the YouTube Plugin required
-        'img{margin*,padding*};' + // Allow margins and padding on <img> to be modifiable
+        'img{margin*,padding*}[usemap];' + // Allow margins and padding on <img> to be modifiable
         'blockquote cite;' + // Allow <cite> to be within the <blockquote>
         'dl dd dt;' + // Allow <dl> <dd> and <dt> elements due to old Accordion code on older sites, can be removed in the future when not needed
         'script(*)[*];' + // Allow script tags to be inserted
-        'h1{line-height};h2{line-height};h3{line-height};h4{line-height}' // Allow headers in the HTML editor to have line-heights
-        'a[aria-label]' // Allow aria-label on anchors
+        'h1{line-height};h2{line-height};h3{line-height};h4{line-height};' + // Allow headers in the HTML editor to have line-heights
+        'a[aria-label];' + // Allow aria-label on anchors
+        'map[id,name];area[shape,coords,href,alt];' // Allow map and area elements
     ;
 
     // Only allow specific link targets
