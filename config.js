@@ -21,7 +21,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.language_list = [ 'ar:Arabic:rtl', 'zh:Chinese', 'fr:French', 'de:German', 'id:Indonesian', 'it:Italian', 'ja:Japanese', 'ko:Korean', 'la:Latin', 'pt:Portuguese', 'es:Spanish', 'th:Thai', 'tr:Turkish', 'vi:Vietnamese'];
 
     // ACF rules not allowed by any plugins
-    config.extraAllowedContent = '*(*)[data-*];' + // allow all classes and any data attribute on all elements
+    config.extraAllowedContent = '*(*)[data-*,aria-*];' + // allow all classes and any data attribute on all elements
         'iframe{*}[width,height,src,allowfullscreen,title,allow,frameborder];' + // Don't require the attributes that the YouTube Plugin required
         'img{margin*,padding*}[usemap];' + // Allow margins and padding on <img> to be modifiable
         'blockquote cite;' + // Allow <cite> to be within the <blockquote>
