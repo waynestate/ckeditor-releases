@@ -81,6 +81,26 @@ CKEDITOR.editorConfig = function( config ) {
     });
 
     this.on('instanceReady', function (evt){
+        if ( evt.editor.dataProcessor && evt.editor.dataProcessor.htmlFilter ) {
+            evt.editor.dataProcessor.htmlFilter.addRules({
+                elements: {
+                    $: function (element) {
+                        const textTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li'];
+
+                        if (textTags.includes(element.name) && element.children) {
+                            element.children.forEach(function (child) {
+                                if (child.type === CKEDITOR.NODE_TEXT) {
+                                    child.value = child.value.replace(/&nbsp;/g, ' ');
+                                }
+                            });
+                        }
+                    }
+                },
+            }, {
+                applyToAll: true,
+            });
+        }
+
         evt.editor.filter.addTransformations([
             [
                 {
